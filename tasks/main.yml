@@ -18,7 +18,7 @@
 - name: Configure New Relic PHP Agent
   template:
     src: newrelic.ini.j2
-    dest: /etc/php5/conf.d/newrelic.ini
+    dest: "{{ php_conf_d_dir | default('/etc/php5/conf.d') }}/newrelic.ini"
     group: root
     owner: root
     mode: 0640
