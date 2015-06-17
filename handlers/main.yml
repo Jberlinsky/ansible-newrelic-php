@@ -3,12 +3,10 @@
   shell: NR_INSTALL_SILENT=true newrelic-install install
   notify:
   - Restart PHP-FPM
-  - Restart Apache HTTP server
+  - Restart Nginx HTTP server
 
 - name: Restart PHP-FPM
   service: name=php5-fpm state=restarted
-  ignore_errors: yes
 
-- name: Restart Apache HTTP server
-  service: name=apache2 state=restarted
-  ignore_errors: yes
+- name: Restart Nginx HTTP server
+  service: name=nginx state=restarted
